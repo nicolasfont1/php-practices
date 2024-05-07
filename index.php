@@ -1,11 +1,15 @@
 <?php 
-  $name = 'Nicolas';
-  echo var_export(is_bool($name));
+  const NAME = 'Nicolas';
+  $job = 'developer';
+  $output = NAME . ' works as ' . $job . ' and is learning';
+
+  define('LOGO_URL', 'https://www.php.net/images/logos/new-php-logo.svg');
 ?>
 
-<h1>
-  <?= $name; ?>
-</h1>
+<h2>
+  <?= $output ?>
+</h2>
+<img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
 
 <style>
   :root {
