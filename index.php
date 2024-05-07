@@ -1,5 +1,10 @@
+<?php 
+  $name = 'Nicolas';
+  echo var_export(is_bool($name));
+?>
+
 <h1>
-  <?= 'Hello world!'; ?>
+  <?= $name; ?>
 </h1>
 
 <style>
