@@ -1,6 +1,6 @@
 <?php 
   const NAME = 'Nicolas';
-  $age = 17;
+  $age = 23;
   $job = 'developer';
   $isDev = true;
   $output = NAME . ' works as ' . $job . ' and is learning';
@@ -8,6 +8,9 @@
   define('LOGO_URL', 'https://www.php.net/images/logos/new-php-logo.svg');
 
   $isOlder = $age > 18;
+  $outputDev = $isDev
+	? 'He`s a promising dev.'
+	: 'He`s not a dev :(';
 ?>
 
 <h2>
@@ -17,14 +20,15 @@
   <img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
 </div>
 
-<?php 
-  if($isOlder) {
-    echo "<h2>He can legally drink alcohol.</h2>";
-} elseif ($isDev) {
-    echo "<h2>He's a promising dev.</h2>";
-} else
-    echo "<h2>He is a child.</h2>";
-?>
+<?= $outputDev; ?>
+
+<?php if ($isOlder) : ?>
+  <h2>He can legally drink alcohol.</h2>
+<?php elseif ($isDev) : ?>
+  <h2>He's a promising dev.</h2>
+<?php else : ?>
+  <h2>He is a child.</h2>
+<?php endif; ?>
 
 <style>
   :root {
