@@ -1,34 +1,26 @@
 <?php 
   const NAME = 'Nicolas';
-  $age = 23;
+  $age = 0;
   $job = 'developer';
-  $isDev = true;
   $output = NAME . ' works as ' . $job . ' and is learning';
 
   define('LOGO_URL', 'https://www.php.net/images/logos/new-php-logo.svg');
 
-  $isOlder = $age > 18;
-  $outputDev = $isDev
-	? 'He`s a promising dev.'
-	: 'He`s not a dev :(';
+  $outputMatch = match ($age) {
+    0 => 'Thats weird.',
+    5 => 'Going to the little school?',
+    17 => 'Probably best year',
+    18 => 'Last good year',
+    19 => 'Oh god...',
+    default => 'Meeh...'
+  };
 ?>
 
-<h2>
-  <?= $output ?>
-</h2>
+<h2><?= $output ?></h2>
 <div style="margin: auto;">
   <img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
 </div>
-
-<?= $outputDev; ?>
-
-<?php if ($isOlder) : ?>
-  <h2>He can legally drink alcohol.</h2>
-<?php elseif ($isDev) : ?>
-  <h2>He's a promising dev.</h2>
-<?php else : ?>
-  <h2>He is a child.</h2>
-<?php endif; ?>
+<h2><?= $outputMatch ?></h2>
 
 <style>
   :root {
