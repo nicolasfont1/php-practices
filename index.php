@@ -6,21 +6,20 @@
 
   define('LOGO_URL', 'https://www.php.net/images/logos/new-php-logo.svg');
 
-  $outputMatch = match ($age) {
-    0 => 'Thats weird.',
-    5 => 'Going to the little school?',
-    17 => 'Probably best year',
-    18 => 'Last good year',
-    19 => 'Oh god...',
-    default => 'Meeh...'
-  };
+  $programmingLanguages = ['PHP', 'Java', 'JavaScript', 'C', 'Pascal', 'Cobol'];
+  $programmingLanguages[] = 'EasterEgg';
 ?>
 
 <h2><?= $output ?></h2>
 <div style="margin: auto;">
   <img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
 </div>
-<h2><?= $outputMatch ?></h2>
+<h2><?= 'List of programming languages: ' ?></h2>
+<ul>
+  <?php foreach ($programmingLanguages as $key => $language) : ?>
+    <li><?= $key . ' ' . $language ?></li>
+  <?php endforeach ?>
+</ul>
 
 <style>
   :root {
