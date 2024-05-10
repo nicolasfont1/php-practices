@@ -1,31 +1,23 @@
-<?php 
-  const NAME = 'Nicolas';
-  $age = 0;
-  $job = 'developer';
-  $output = NAME . ' works as ' . $job . ' and is learning';
+<?php
+  const API_URL = 'https://whenisthenextmcufilm.com/api';
+  # Se inicia una nueva sesión de cURL.
+  $ch = curl_init(API_URL);
+  // Indicar que queremos guardar el resultado de la petición y NO mostrarlo en pantalla.
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  /*
+  Ejecutamos la petición y guardamos el resultado.
+  */
+  $result = curl_exec($ch);
+  $data = json_decode($result, true); // El true se pasa para indicar que queremos guardar el resultado en forma de array asociativo.
 
-  define('LOGO_URL', 'https://www.php.net/images/logos/new-php-logo.svg');
+  curl_close($ch);
 
-  $person = [
-    'name' => 'Nicolás',
-    'age' => 23,
-    'job' => 'developer',
-    'sports' => ['football', 'basketball']
-  ];
+  var_dump($data)
 ?>
 
-<h2><?= $output ?></h2>
-<div style="margin: auto;">
-  <img src="<?= LOGO_URL?>" alt="PHP Logo" width="200">
-</div>
-<h2>Things about <?= $person["name"] ?></h2>
-<ul>
-  <li><?= 'Age: ' . $person["age"] ?></li>
-  <li><?= 'Work as: ' . $person["age"] ?></li>
-  <li><?= 'He likes to play: ' . $person["sports"][1] ?></li>
-  <li><?= 'And also ' . $person["sports"][0] ?></li>
-</ul>
-
+<main>
+  <h2>Next Marvel movie</h2>
+</main>
 
 <style>
   :root {
@@ -38,3 +30,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 </style>
+
+<head>
+  <title>PHP Practices</title>
+</head>
