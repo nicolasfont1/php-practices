@@ -23,8 +23,11 @@ curl_close($ch);
   <?php if ($data) : ?>
   <main class="mainContainer">
       <section class="movieInfoSection">
-        <h4 class="text-muted">Next Marvel movie</h4>
+        <h4>Next Marvel movie</h4>
         <h2><?= $data["title"] ?></h2>
+        <p class="mb-0">Release date</p>
+        <h4><?= $data["release_date"] ?></h4>
+        <em style="margin-bottom: 20vh;">(<?= $data["days_until"] ?> days left)</em>
       </section>
       
 
@@ -65,5 +68,6 @@ curl_close($ch);
     flex-direction: column;
     justify-content: end;
     align-items: center;
+    text-align: center;
   }
 </style>
